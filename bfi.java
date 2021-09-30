@@ -61,6 +61,8 @@ public class bfi {
 		boolean[] arr = new boolean[arrLen];
 		int pointer = 0;
 
+		char[] validCommands = {'+', '>', '<', '[', ']', '.', ','};
+		int validCommandsCounter = 0;
 		int index = 0;
 		List<Integer> stack = new ArrayList<Integer>();
 		while (index < code.length()) {
@@ -94,11 +96,21 @@ public class bfi {
 					index = tempIndex;
 				}
 			}
+
+			for (int i=0; i<validCommands.length; i++)
+			{
+				if (cm == validCommands[i])
+				{
+					validCommandsCounter++;
+				}
+			}
+
 			index++;
 			printArr(arr);
 			System.out.println("      pointer: " + pointer + "   command: " + cm);
 		}
-		System.out.println(index);
+		System.out.println("number commands: " + index);
+		System.out.println("number of valid commands: " + validCommandsCounter);
 	}
 
 }
